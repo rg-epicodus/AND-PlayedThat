@@ -50,11 +50,11 @@ public class ImageAdapter extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.sample_00, R.drawable.sample_01,
-            R.drawable.sample_02, R.drawable.sample_03,
-            R.drawable.sample_04, R.drawable.sample_05,
-            R.drawable.sample_06, R.drawable.sample_07,
-            R.drawable.sample_08, R.drawable.sample_09,
-            R.drawable.sample_10, R.drawable.sample_11
+            R.drawable.sample_00, //R.drawable.sample_01,
+//            R.drawable.sample_02, R.drawable.sample_03,
+//            R.drawable.sample_04, R.drawable.sample_05,
+//            R.drawable.sample_06, R.drawable.sample_07,
+//            R.drawable.sample_08, R.drawable.sample_09,
+//            R.drawable.sample_10, R.drawable.sample_11
     };
 }
