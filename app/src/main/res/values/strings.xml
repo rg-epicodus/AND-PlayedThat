@@ -2,4 +2,6 @@
     <string name="app_name">PlayedThat</string>
     <string name="playedthat">PlayedThat</string>
     <string name="select_a_genre">Select a Genre</string>
+    <string name="action_games">Action Games</string>
+    <string name="action_games_list">Action Games</string>
 </resources>

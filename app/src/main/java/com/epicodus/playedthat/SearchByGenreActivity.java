@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -17,6 +18,7 @@ import butterknife.ButterKnife;
 
 
 public class SearchByGenreActivity extends AppCompatActivity {
+    private EditText mLocationEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
