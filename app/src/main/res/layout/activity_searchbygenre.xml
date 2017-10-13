@@ -49,7 +49,7 @@
         tools:layout_constraintTop_creator="1" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/appNameTextView"
         android:layout_width="0dp"
         android:layout_height="105dp"
         android:layout_marginBottom="8dp"
