@@ -27,6 +27,6 @@ public class MainActivityTest {
     @Test
     public void validateTextViewContent() {
         TextView mAppNameTextView = (TextView) activity.findViewById(R.id.appNameTextView);
-        assertTrue("Local Business".equals(mAppNameTextView.getText().toString()));
+        assertTrue("PlayedThat".equals(mAppNameTextView.getText().toString()));
     }
 }
