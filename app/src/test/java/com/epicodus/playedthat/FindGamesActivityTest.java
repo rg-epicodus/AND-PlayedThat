@@ -26,7 +26,7 @@ public class FindGamesActivityTest {
     @Test
     public void validateTextViewContent() {
         TextView mAppNameTextView = (TextView) activity.findViewById(R.id.appNameTextView);
-        assertTrue("PlayedThat".equals(mAppNameTextView.getText().toString()));
+        assertTrue("Search Games By:".equals(mAppNameTextView.getText().toString()));
     }
 
 }
