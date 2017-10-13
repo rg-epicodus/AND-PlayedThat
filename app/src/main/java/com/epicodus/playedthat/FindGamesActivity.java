@@ -23,6 +23,14 @@ public class FindGamesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_games);
         ButterKnife.bind(this);
 
+        mSearchByGenreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FindGamesActivity.this, SearchByGenreActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
 
