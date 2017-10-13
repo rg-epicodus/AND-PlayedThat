@@ -39,9 +39,11 @@ Table of contents
 
 | Behavior      | Example Input         | Example Output        |
 | ------------- | ------------- | ------------- |
-|   |   |   |
+| User wants to select a button  | user clicks find games  | page advances to Search games by:   |
+| User wants to search by genre  | user clicks genre selector  | page advances to select a genre:   |
+| User wants to view genre  | user clicks unique genre, inputs valid email  | page advances to unique genre and lists games:   |
 
-![ScreenShot](src/resources/img/screenshot01.png)
+![ScreenShot](app/src/main/assets/images/screenshot01.png)
 
 
 ## Known Bugs
