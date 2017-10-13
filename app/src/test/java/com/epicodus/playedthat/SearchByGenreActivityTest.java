@@ -15,7 +15,7 @@ import static junit.framework.Assert.assertTrue;
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 @RunWith(RobolectricGradleTestRunner.class)
 
-public class SearchByGenreAvtivityTest {
+public class SearchByGenreActivityTest {
     private SearchByGenreActivity activity;
 
     @Before
@@ -26,6 +26,6 @@ public class SearchByGenreAvtivityTest {
     @Test
     public void validateTextViewContent() {
         TextView mAppNameTextView = (TextView) activity.findViewById(R.id.appNameTextView);
-        assertTrue("Search Games By:".equals(mAppNameTextView.getText().toString()));
+        assertTrue("Select a Genre".equals(mAppNameTextView.getText().toString()));
     }
 }
