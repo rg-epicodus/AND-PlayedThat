@@ -13,6 +13,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -32,14 +35,27 @@ public class SearchByGenreActivity extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                String userEmail = mUserEmailEditText.getText().toString();
-                Intent intent = new Intent(SearchByGenreActivity.this, GenreActionActivity.class);
-                intent.putExtra("userEmail", userEmail);
-                startActivity(intent);
-
-//                Toast.makeText(SearchByGenreActivity.this, "" + position, Toast.LENGTH_LONG).show();
+                final String userEmail = mUserEmailEditText.getText().toString();
+                if (isValidEmail(userEmail)) {
+                    Intent intent = new Intent(SearchByGenreActivity.this, GenreActionActivity.class);
+                    intent.putExtra("userEmail", userEmail);
+                    startActivity(intent);
+                } else {
+                    mUserEmailEditText.setError("Invalid Email");
+                }
             }
         });
 
     }
+
+    // validating email id
+    private boolean isValidEmail(String userEmail) {
+        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(userEmail);
+        return matcher.matches();
+    }
+
 }
