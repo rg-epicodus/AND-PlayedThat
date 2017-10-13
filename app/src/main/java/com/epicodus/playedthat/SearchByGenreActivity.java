@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 
 
 public class SearchByGenreActivity extends AppCompatActivity {
-    private EditText mLocationEditText;
+    @Bind(R.id.userEmailEditText) EditText mUserEmailEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,9 @@ public class SearchByGenreActivity extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                String userEmail = mUserEmailEditText.getText().toString();
                 Intent intent = new Intent(SearchByGenreActivity.this, GenreActionActivity.class);
+                intent.putExtra("userEmail", userEmail);
                 startActivity(intent);
 
 //                Toast.makeText(SearchByGenreActivity.this, "" + position, Toast.LENGTH_LONG).show();

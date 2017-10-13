@@ -1,5 +1,6 @@
 package com.epicodus.playedthat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,6 +20,7 @@ import butterknife.ButterKnife;
 
 public class GenreActionActivity extends AppCompatActivity {
     @Bind(R.id.listView) ListView mListView;
+    @Bind(R.id.actionGenreTextView) TextView mActionGenreTextView;
 
     private String[] gameName = new String[] {"Day Z", "Airships", "EverQuest", "Assassin's Creed 14", "Shadowrun", "MetalGear Solid 5" };
     private String[] numPlayers = new String[] {"Single Player", "Multi-Player", "Multi-Player", "Multi-Player", "Single Player, Multi-Player", "Single Player"};
@@ -35,6 +37,10 @@ public class GenreActionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genreaction);
         ButterKnife.bind(this);
+
+        Intent intent = getIntent();
+        String userEmail = intent.getStringExtra("userEmail");
+        mActionGenreTextView.setText("Thank you for your Email of: " + userEmail);
 
         GenreArrayAdapter adapter = new GenreArrayAdapter(this, android.R.layout.simple_list_item_1, gameName, numPlayers, theme, platform, firstReleaseDate, rating, ESRB);
         mListView.setAdapter(adapter);
