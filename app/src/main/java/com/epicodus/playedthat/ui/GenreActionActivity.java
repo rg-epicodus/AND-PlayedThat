@@ -1,4 +1,4 @@
-package com.epicodus.playedthat;
+package com.epicodus.playedthat.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,10 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.epicodus.playedthat.R;
+import com.epicodus.playedthat.adapters.GenreArrayAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,6 +23,8 @@ import butterknife.ButterKnife;
 public class GenreActionActivity extends AppCompatActivity {
     @Bind(R.id.listView) ListView mListView;
     @Bind(R.id.actionGenreTextView) TextView mActionGenreTextView;
+//    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+//    private GameListAdapter mAdapter;
 
     private String[] gameName = new String[] {"Day Z", "Airships", "EverQuest", "Assassin's Creed 14", "Shadowrun", "MetalGear Solid 5" };
     private String[] numPlayers = new String[] {"Single Player", "Multi-Player", "Multi-Player", "Multi-Player", "Single Player, Multi-Player", "Single Player"};

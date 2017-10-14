@@ -3,6 +3,8 @@ package com.epicodus.playedthat;
 import android.os.Build;
 import android.widget.TextView;
 
+import com.epicodus.playedthat.ui.SearchByGenreActivity;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

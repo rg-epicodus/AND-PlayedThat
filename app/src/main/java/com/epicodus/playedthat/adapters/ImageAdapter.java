@@ -1,4 +1,4 @@
-package com.epicodus.playedthat;
+package com.epicodus.playedthat.adapters;
 
 import android.content.Context;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import com.epicodus.playedthat.R;
 
 /**
  * Created by OIG on 10/13/2017.

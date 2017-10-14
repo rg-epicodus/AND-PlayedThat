@@ -1,4 +1,4 @@
-package com.epicodus.playedthat;
+package com.epicodus.playedthat.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

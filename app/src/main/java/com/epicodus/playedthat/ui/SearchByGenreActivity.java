@@ -1,17 +1,15 @@
-package com.epicodus.playedthat;
+package com.epicodus.playedthat.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.epicodus.playedthat.R;
+import com.epicodus.playedthat.adapters.ImageAdapter;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
