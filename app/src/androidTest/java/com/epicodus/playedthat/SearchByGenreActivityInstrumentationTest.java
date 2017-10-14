@@ -23,6 +23,6 @@ public class SearchByGenreActivityInstrumentationTest {
     @Test
     public void validateEditText() {
         onView(withId(R.id.userEmailEditText)).perform(typeText("test@epicodus.com"))
-                .check(matches(withText("alpha@epicodus.com")));
+                .check(matches(withText("test@epicodus.com")));
     }
 }
