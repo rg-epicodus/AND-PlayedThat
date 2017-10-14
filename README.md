@@ -43,7 +43,7 @@ Table of contents
 | User wants to search by genre  | user clicks genre selector  | page advances to select a genre:   |
 | User wants to view genre  | user clicks unique genre, inputs valid email  | page advances to unique genre and lists games:   |
 
-![ScreenShot](app/src/main/assets/images/screenshot01.png)
+![ScreenShot](./app/src/main/assets/images/screenshot01.png)
 
 
 ## Known Bugs
