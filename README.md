@@ -7,7 +7,6 @@ Table of contents
   * [Table of contents](#table-of-contents)
   * [Project Info](#project-info)
     * [Documentation](#documentation)
-    * [Adding Collaborators](#add-collaborators)
   * [Installation](#installation)
   * [Specifications](#specifications)
   * [Known Bugs](#known-bugs)
@@ -20,12 +19,7 @@ Table of contents
 
 ### Documentation
 
-    1.
-    2.
-    3.
-    4.
-    5.
-
+  No documentation for this exists yet.
 
 ## Setup/Installation Requirements
 
