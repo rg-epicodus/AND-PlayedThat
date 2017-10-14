@@ -44,7 +44,9 @@ Table of contents
 | User wants to view genre  | user clicks unique genre, inputs valid email  | page advances to unique genre and lists games:   |
 
 ![ScreenShot](./app/src/main/assets/images/screenshot01.png)
-
+![ScreenShot](./app/src/main/assets/images/screenshot02.png)
+![ScreenShot](./app/src/main/assets/images/screenshot03.png)
+![ScreenShot](./app/src/main/assets/images/screenshot04.png)
 
 ## Known Bugs
 * Contact Rich Garrick at <richg341@gmail.com>
