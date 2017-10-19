@@ -3,23 +3,38 @@ package com.epicodus.playedthat.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.epicodus.playedthat.R;
 import com.epicodus.playedthat.adapters.ImageAdapter;
+import com.epicodus.playedthat.models.Genre;
+import com.epicodus.playedthat.services.APIService;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 
 public class SearchByGenreActivity extends AppCompatActivity {
-    @Bind(R.id.userEmailEditText) EditText mUserEmailEditText;
+    public static final String TAG = SearchByGenreActivity.class.getSimpleName();
+    @Bind(R.id.listView) ListView mListView;
+
+    public ArrayList<Genre> genres = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,23 +42,57 @@ public class SearchByGenreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_searchbygenre);
         ButterKnife.bind(this);
 
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(this));
+//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, genres);
+//        mListView.setAdapter(adapter);
+//
+//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
+//                String genres = ((TextView)view).getText().toString();
+//                Toast.makeText(SearchByGenreActivity.this, genres, Toast.LENGTH_LONG).show();
+//            }
+//        });
 
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        Intent intent = getIntent();
+        String genre = intent.getStringExtra("genre");
+
+
+        getGenres(genre);
+
+    }
+
+    private void getGenres(String genre) {
+        final APIService apiService = new APIService();
+        apiService.findGenres(genre, new Callback() {
+
             @Override
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                final String userEmail = mUserEmailEditText.getText().toString();
-                if (isValidEmail(userEmail)) {
-                    Intent intent = new Intent(SearchByGenreActivity.this, GenreActionActivity.class);
-                    intent.putExtra("userEmail", userEmail);
-                    startActivity(intent);
-                } else {
-                    mUserEmailEditText.setError("Invalid Email");
-                }
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
             }
-        });
 
+            @Override
+            public void onResponse(Call call, Response response) {
+                genres = apiService.processResults(response);
+                SearchByGenreActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] genreNames = new String[genres.size()];
+                        for (int i = 0; i < genreNames.length; i++) {
+                            genreNames[i] = genres.get(i).getName();
+                        }
+
+                        ArrayAdapter adapter = new ArrayAdapter(SearchByGenreActivity.this,
+                                android.R.layout.simple_expandable_list_item_1, genreNames);
+                        mListView.setAdapter(adapter);
+
+                        for (Genre genre : genres) {
+                            Log.d(TAG, "Name: " + genre.getName());
+                        }
+                    }
+                });
+            }
+
+        });
     }
 
     // validating email id

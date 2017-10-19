@@ -12,17 +12,24 @@ import android.widget.Toast;
 
 import com.epicodus.playedthat.R;
 import com.epicodus.playedthat.adapters.GenreArrayAdapter;
+import com.epicodus.playedthat.services.APIService;
+
+import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * Created by OIG on 10/13/2017.
  */
 
 public class GenreActionActivity extends AppCompatActivity {
+
     @Bind(R.id.listView) ListView mListView;
-    @Bind(R.id.actionGenreTextView) TextView mActionGenreTextView;
+//    @Bind(R.id.actionGenreTextView) TextView mActionGenreTextView;
 //    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 //    private GameListAdapter mAdapter;
 
@@ -42,9 +49,6 @@ public class GenreActionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_genreaction);
         ButterKnife.bind(this);
 
-        Intent intent = getIntent();
-        String userEmail = intent.getStringExtra("userEmail");
-        mActionGenreTextView.setText("Thank you for your Email of: " + userEmail);
 
         GenreArrayAdapter adapter = new GenreArrayAdapter(this, android.R.layout.simple_list_item_1, gameName, numPlayers, theme, platform, firstReleaseDate, rating, ESRB);
         mListView.setAdapter(adapter);
@@ -58,5 +62,11 @@ public class GenreActionActivity extends AppCompatActivity {
             }
         });
 
+        Intent intent = getIntent();
+        String userEmail = intent.getStringExtra("userEmail");
+
+//        mActionGenreTextView.setText("Thank you for your Email of: " + userEmail);
     }
+
+
 }
