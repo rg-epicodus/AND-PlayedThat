@@ -18,8 +18,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.FindGamesActivity"></activity>
-        <activity android:name=".ui.SearchByGenreActivity"></activity>
-        <activity android:name=".ui.GenreActionActivity"></activity>
+        <activity android:name=".ui.GenreListActivity"></activity>
+        <activity android:name=".ui.GameListActivity"></activity>
+
     </application>
 
 </manifest>

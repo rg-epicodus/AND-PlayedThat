@@ -8,6 +8,8 @@ public class Genre {
     private String name;
     private String image;
 
+    public Genre() {}
+
     public Genre(String name, String image) {
         this.name = name;
         this.image = image;

@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 
 import com.epicodus.playedthat.R;
 import com.epicodus.playedthat.adapters.GenreListAdapter;
@@ -23,8 +28,8 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 
-public class SearchByGenreActivity extends AppCompatActivity {
-    public static final String TAG = SearchByGenreActivity.class.getSimpleName();
+public class GenreListActivity extends AppCompatActivity {
+    public static final String TAG = GenreListActivity.class.getSimpleName();
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private GenreListAdapter mAdapter;
 
@@ -33,7 +38,7 @@ public class SearchByGenreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_searchbygenre);
+        setContentView(R.layout.activity_genrelist);
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
@@ -55,18 +60,18 @@ public class SearchByGenreActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) {
                 genres = apiService.processResults(response);
-                SearchByGenreActivity.this.runOnUiThread(new Runnable() {
+                GenreListActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         mAdapter = new GenreListAdapter(getApplicationContext(), genres);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager =
-                                new LinearLayoutManager(SearchByGenreActivity.this);
+                                new LinearLayoutManager(GenreListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setHasFixedSize(true);                    }
+                        mRecyclerView.setHasFixedSize(true);
+                    }
                 });
             }
-
         });
     }
 

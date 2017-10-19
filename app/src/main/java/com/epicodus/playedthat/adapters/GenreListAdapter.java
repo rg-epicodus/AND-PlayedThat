@@ -1,7 +1,9 @@
 package com.epicodus.playedthat.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,8 @@ import android.widget.TextView;
 
 import com.epicodus.playedthat.R;
 import com.epicodus.playedthat.models.Genre;
+import com.epicodus.playedthat.ui.GameListActivity;
+import com.epicodus.playedthat.ui.GenreListActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -48,7 +52,7 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.Genr
     }
 
 
-    public class GenreViewHolder extends RecyclerView.ViewHolder {
+    public class GenreViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.genreImageView) ImageView mGenreImageView;
         @Bind(R.id.genreNameTextView) TextView mGenreNameTextView;
 
@@ -58,11 +62,22 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.Genr
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindGenre(Genre genre) {
             Picasso.with(mContext).load(genre.getImage()).into(mGenreImageView);
             mGenreNameTextView.setText(genre.getName());
+        }
+
+        @Override
+        public void onClick(View v) {
+            Log.d("click listener", "working!");
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, GameListActivity.class);
+            intent.putExtra("position", itemPosition + "");
+//            intent.putExtra("genres", Parcels.wrap(mGenres));
+            mContext.startActivity(intent);
         }
     }
 }

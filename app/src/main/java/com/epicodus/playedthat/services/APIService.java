@@ -57,7 +57,6 @@ public class APIService {
                 String name = genreJSON.getString("name");
                 String image = genreJSON.getJSONObject("image").getString("small_url");
 
-
                 Genre genre = new Genre(name, image);
                 genres.add(genre);
             }

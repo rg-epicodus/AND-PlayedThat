@@ -10,6 +10,5 @@ public class Constants {
     public static final String API_KEY_PARAMETER = "api_key";
 //    public static final String API_GENRES_QUERY_PARAMETER = "genres/";
     public static final String FIELD_LIST_QUERY_PARAMETER = "field_list";
-
     public static final String FORMAT_JSON_PARAMETER = "format";
 }

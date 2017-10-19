@@ -3,7 +3,7 @@ package com.epicodus.playedthat;
 import android.os.Build;
 import android.widget.TextView;
 
-import com.epicodus.playedthat.ui.SearchByGenreActivity;
+import com.epicodus.playedthat.ui.GenreListActivity;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,11 +18,11 @@ import static junit.framework.Assert.assertTrue;
 @RunWith(RobolectricGradleTestRunner.class)
 
 public class SearchByGenreActivityTest {
-    private SearchByGenreActivity activity;
+    private GenreListActivity activity;
 
     @Before
     public void setup() {
-        activity = Robolectric.setupActivity(SearchByGenreActivity.class);
+        activity = Robolectric.setupActivity(GenreListActivity.class);
     }
 
     @Test

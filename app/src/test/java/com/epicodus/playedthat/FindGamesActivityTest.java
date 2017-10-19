@@ -5,7 +5,7 @@ import android.os.Build;
 import android.widget.TextView;
 
 import com.epicodus.playedthat.ui.FindGamesActivity;
-import com.epicodus.playedthat.ui.SearchByGenreActivity;
+import com.epicodus.playedthat.ui.GenreListActivity;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +37,7 @@ public class FindGamesActivityTest {
     @Test
     public void thirdActivityStarted() {
         activity.findViewById(R.id.searchByGenreButton).performClick();
-        Intent expectedIntent = new Intent(activity, SearchByGenreActivity.class);
+        Intent expectedIntent = new Intent(activity, GenreListActivity.class);
         ShadowActivity shadowActivity = org.robolectric.Shadows.shadowOf(activity);
         Intent actualIntent = shadowActivity.getNextStartedActivity();
         assertTrue(actualIntent.filterEquals(expectedIntent));
