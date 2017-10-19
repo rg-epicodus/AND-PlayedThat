@@ -3,17 +3,19 @@ package com.epicodus.playedthat.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.playedthat.R;
+import com.epicodus.playedthat.adapters.GenreListAdapter;
 import com.epicodus.playedthat.adapters.ImageAdapter;
 import com.epicodus.playedthat.models.Genre;
 import com.epicodus.playedthat.services.APIService;
@@ -32,7 +34,8 @@ import okhttp3.Response;
 
 public class SearchByGenreActivity extends AppCompatActivity {
     public static final String TAG = SearchByGenreActivity.class.getSimpleName();
-    @Bind(R.id.listView) ListView mListView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private GenreListAdapter mAdapter;
 
     public ArrayList<Genre> genres = new ArrayList<>();
 
@@ -76,19 +79,12 @@ public class SearchByGenreActivity extends AppCompatActivity {
                 SearchByGenreActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        String[] genreNames = new String[genres.size()];
-                        for (int i = 0; i < genreNames.length; i++) {
-                            genreNames[i] = genres.get(i).getName();
-                        }
-
-                        ArrayAdapter adapter = new ArrayAdapter(SearchByGenreActivity.this,
-                                android.R.layout.simple_expandable_list_item_1, genreNames);
-                        mListView.setAdapter(adapter);
-
-                        for (Genre genre : genres) {
-                            Log.d(TAG, "Name: " + genre.getName());
-                        }
-                    }
+                        mAdapter = new GenreListAdapter(getApplicationContext(), genres);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(SearchByGenreActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);                    }
                 });
             }
 
