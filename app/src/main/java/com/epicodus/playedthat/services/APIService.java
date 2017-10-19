@@ -2,6 +2,7 @@ package com.epicodus.playedthat.services;
 
 import android.util.Log;
 
+import com.epicodus.playedthat.BuildConfig;
 import com.epicodus.playedthat.Constants;
 import com.epicodus.playedthat.models.Genre;
 
@@ -30,9 +31,10 @@ public class APIService {
                 .build();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.API_BASE_URL).newBuilder();
+        urlBuilder.addQueryParameter(Constants.API_KEY_PARAMETER, Constants.API_KEY);
 //        urlBuilder.addQueryParameter(Constants.API_GENRES_QUERY_PARAMETER, genre);
-//        urlBuilder.addQueryParameter(Constants.FIELD_LIST_QUERY_PARAMETER, name);
-//        urlBuilder.addQueryParameter(Constants.FORMAT_JSON_PARAMETER, format);
+        urlBuilder.addQueryParameter(Constants.FIELD_LIST_QUERY_PARAMETER, "name");
+        urlBuilder.addQueryParameter(Constants.FORMAT_JSON_PARAMETER, "json");
         String url = urlBuilder.build().toString();
         Log.v("String url", url);
         Request request= new Request.Builder()

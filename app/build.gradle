@@ -23,7 +23,7 @@ android {
         jcenter()
     }
     buildTypes.each {
-        it.buildConfigField 'String', 'regCode', regCode
+        it.buildConfigField 'String', 'API_KEY', API_KEY
     }
 }
 
