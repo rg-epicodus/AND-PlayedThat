@@ -5,18 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.epicodus.playedthat.R;
 import com.epicodus.playedthat.adapters.GenreListAdapter;
-import com.epicodus.playedthat.adapters.ImageAdapter;
 import com.epicodus.playedthat.models.Genre;
 import com.epicodus.playedthat.services.APIService;
 
@@ -45,20 +36,8 @@ public class SearchByGenreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_searchbygenre);
         ButterKnife.bind(this);
 
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, genres);
-//        mListView.setAdapter(adapter);
-//
-//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
-//                String genres = ((TextView)view).getText().toString();
-//                Toast.makeText(SearchByGenreActivity.this, genres, Toast.LENGTH_LONG).show();
-//            }
-//        });
-
         Intent intent = getIntent();
         String genre = intent.getStringExtra("genre");
-
 
         getGenres(genre);
 

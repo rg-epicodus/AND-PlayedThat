@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.epicodus.playedthat.R;
 import com.epicodus.playedthat.models.Genre;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -60,6 +61,7 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.Genr
         }
 
         public void bindGenre(Genre genre) {
+            Picasso.with(mContext).load(genre.getImage()).into(mGenreImageView);
             mGenreNameTextView.setText(genre.getName());
         }
     }
