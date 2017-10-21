@@ -17,7 +17,7 @@ public class Genre {
 
     public Genre(String name, String image, String deck, String genreUrl) {
         this.name = name;
-        this.image = image;
+        this.image = getLargeImageUrl(image);
         this.deck = deck;
         this.genreUrl = genreUrl;
     }
@@ -35,5 +35,10 @@ public class Genre {
     }
     public String getGenreUrl() {
         return genreUrl;
+    }
+
+    public String getLargeImageUrl(String image) {
+        String largeImageUrl = image.substring(0, image.length());
+        return largeImageUrl;
     }
 }

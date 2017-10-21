@@ -27,6 +27,8 @@ import butterknife.ButterKnife;
  */
 
 public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.GenreViewHolder> {
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
     private ArrayList<Genre> mGenres = new ArrayList<>();
     private Context mContext;
 
@@ -56,8 +58,6 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.Genr
     public class GenreViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.genreImageView) ImageView mGenreImageView;
         @Bind(R.id.genreNameTextView) TextView mGenreNameTextView;
-//        @Bind(R.id.genreDeckTextView) TextView mGenreDeckTextView;
-//        @Bind(R.id.genreUrlTextView) TextView mGenreUrlTextView;
 
 
         private Context mContext;
@@ -70,10 +70,12 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.Genr
         }
 
         public void bindGenre(Genre genre) {
-            Picasso.with(mContext).load(genre.getImage()).into(mGenreImageView);
+            Picasso.with(mContext)
+                    .load(genre.getImage())
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(mGenreImageView);
             mGenreNameTextView.setText(genre.getName());
-//            mGenreDeckTextView.setText(genre.getDeck());
-//            mGenreUrlTextView.setText(genre.getGenreUrl());
 
 
         }

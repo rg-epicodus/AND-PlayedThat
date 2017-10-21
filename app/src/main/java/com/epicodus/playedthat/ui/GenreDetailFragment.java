@@ -1,6 +1,8 @@
 package com.epicodus.playedthat.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,7 +20,9 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class GenreDetailFragment extends Fragment {
+public class GenreDetailFragment extends Fragment implements View.OnClickListener {
+    private static final int MAX_WIDTH = 400;
+    private static final int MAX_HEIGHT = 300;
     @Bind(R.id.genreImageView) ImageView mGenreImageLabel;
     @Bind(R.id.genreNameTextView) TextView mGenreNameLabel;
     @Bind(R.id.genreDeckTextView) TextView mGenreDeckLabel;
@@ -46,12 +50,27 @@ public class GenreDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_genre_detail, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.with(view.getContext()).load(mGenre.getGenreUrl()).into(mGenreImageLabel);
+        Picasso.with(view.getContext())
+                .load(mGenre.getGenreUrl())
+                .resize(MAX_WIDTH, MAX_HEIGHT)
+                .centerCrop()
+                .into(mGenreImageLabel);
         mGenreNameLabel.setText(mGenre.getName());
         mGenreDeckLabel.setText(mGenre.getDeck());
         mGenreUrlLabel.setText(mGenre.getGenreUrl());
 
+        mGenreUrlLabel.setOnClickListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mGenreUrlLabel) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mGenre.getGenreUrl()));
+            startActivity(webIntent);
+        }
+
     }
 
 }
