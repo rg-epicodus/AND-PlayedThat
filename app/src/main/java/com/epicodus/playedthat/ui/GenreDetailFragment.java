@@ -51,14 +51,12 @@ public class GenreDetailFragment extends Fragment implements View.OnClickListene
         ButterKnife.bind(this, view);
 
         Picasso.with(view.getContext())
-                .load(mGenre.getGenreUrl())
+                .load(mGenre.getImage())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
                 .centerCrop()
                 .into(mGenreImageLabel);
         mGenreNameLabel.setText(mGenre.getName());
         mGenreDeckLabel.setText(mGenre.getDeck());
-        mGenreUrlLabel.setText(mGenre.getGenreUrl());
-
         mGenreUrlLabel.setOnClickListener(this);
 
         return view;
