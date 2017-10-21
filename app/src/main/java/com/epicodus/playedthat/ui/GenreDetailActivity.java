@@ -31,7 +31,7 @@ public class GenreDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mGenres = Parcels.unwrap(getIntent().getParcelableExtra("genres"));
-        int startingPosition = getIntent().getIntExtra("position", 0);
+        int startingPosition = Integer.parseInt(getIntent().getStringExtra("position"));
 
         adapterViewPager = new GenrePagerAdapter(getSupportFragmentManager(), mGenres);
         mViewPager.setAdapter(adapterViewPager);
