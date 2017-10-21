@@ -12,9 +12,10 @@ import android.widget.TextView;
 
 import com.epicodus.playedthat.R;
 import com.epicodus.playedthat.models.Genre;
-import com.epicodus.playedthat.ui.GameListActivity;
-import com.epicodus.playedthat.ui.GenreListActivity;
+import com.epicodus.playedthat.ui.GenreDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -55,6 +56,9 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.Genr
     public class GenreViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.genreImageView) ImageView mGenreImageView;
         @Bind(R.id.genreNameTextView) TextView mGenreNameTextView;
+//        @Bind(R.id.genreDeckTextView) TextView mGenreDeckTextView;
+//        @Bind(R.id.genreUrlTextView) TextView mGenreUrlTextView;
+
 
         private Context mContext;
 
@@ -68,15 +72,19 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.Genr
         public void bindGenre(Genre genre) {
             Picasso.with(mContext).load(genre.getImage()).into(mGenreImageView);
             mGenreNameTextView.setText(genre.getName());
+//            mGenreDeckTextView.setText(genre.getDeck());
+//            mGenreUrlTextView.setText(genre.getGenreUrl());
+
+
         }
 
         @Override
         public void onClick(View v) {
             Log.d("click listener", "working!");
             int itemPosition = getLayoutPosition();
-            Intent intent = new Intent(mContext, GameListActivity.class);
+            Intent intent = new Intent(mContext, GenreDetailActivity.class);
             intent.putExtra("position", itemPosition + "");
-//            intent.putExtra("genres", Parcels.wrap(mGenres));
+            intent.putExtra("genres", Parcels.wrap(mGenres));
             mContext.startActivity(intent);
         }
     }

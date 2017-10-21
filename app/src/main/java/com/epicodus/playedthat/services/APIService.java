@@ -32,11 +32,9 @@ public class APIService {
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.API_BASE_URL).newBuilder();
         urlBuilder.addQueryParameter(Constants.API_KEY_PARAMETER, Constants.API_KEY);
-//        urlBuilder.addQueryParameter(Constants.API_GENRES_QUERY_PARAMETER, genre);
-        urlBuilder.addQueryParameter(Constants.FIELD_LIST_QUERY_PARAMETER, "name,image");
+        urlBuilder.addQueryParameter(Constants.FIELD_LIST_QUERY_PARAMETER, "name,image,deck,site_detail_url");
         urlBuilder.addQueryParameter(Constants.FORMAT_JSON_PARAMETER, "json");
         String url = urlBuilder.build().toString();
-        Log.v("String url", url);
         Request request= new Request.Builder()
                 .url(url)
                 .build();
@@ -56,8 +54,10 @@ public class APIService {
                 JSONObject genreJSON = resultsJSON.getJSONObject(i);
                 String name = genreJSON.getString("name");
                 String image = genreJSON.getJSONObject("image").getString("small_url");
+                String deck = genreJSON.optString("deck");
+                String genreUrl = genreJSON.optString("site_detail_url");
 
-                Genre genre = new Genre(name, image);
+                Genre genre = new Genre(name, image, deck, genreUrl);
                 genres.add(genre);
             }
         }

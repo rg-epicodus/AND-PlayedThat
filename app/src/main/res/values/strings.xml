@@ -5,4 +5,9 @@
     <string name="action_games">Action Games</string>
     <string name="action_games_list">Action Games</string>
     <string name="textview">TextView</string>
+    <string name="genre_deck">Genre Deck</string>
+    <string name="genre_name">Genre Name</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
