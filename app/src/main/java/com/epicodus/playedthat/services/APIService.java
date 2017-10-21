@@ -1,6 +1,7 @@
 package com.epicodus.playedthat.services;
 
 import android.util.Log;
+import android.view.View;
 
 import com.epicodus.playedthat.BuildConfig;
 import com.epicodus.playedthat.Constants;
@@ -26,7 +27,7 @@ import okhttp3.Response;
 
 public class APIService {
 
-    public static void findGenres(String location, Callback callback) {
+    public static void findGenres(String genre, Callback callback) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
 

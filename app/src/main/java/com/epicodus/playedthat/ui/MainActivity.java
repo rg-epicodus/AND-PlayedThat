@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         mFindGamesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//            Toast.makeText(MainActivity.this, "Find Games Clicked", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(MainActivity.this, FindGamesActivity.class);
             startActivity(intent);
             }

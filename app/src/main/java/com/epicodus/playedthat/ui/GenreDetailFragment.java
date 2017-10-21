@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 
 public class GenreDetailFragment extends Fragment implements View.OnClickListener {
     private static final int MAX_WIDTH = 400;
-    private static final int MAX_HEIGHT = 300;
+    private static final int MAX_HEIGHT = 180;
     @Bind(R.id.genreImageView) ImageView mGenreImageLabel;
     @Bind(R.id.genreNameTextView) TextView mGenreNameLabel;
     @Bind(R.id.genreDeckTextView) TextView mGenreDeckLabel;
@@ -56,7 +56,14 @@ public class GenreDetailFragment extends Fragment implements View.OnClickListene
                 .centerCrop()
                 .into(mGenreImageLabel);
         mGenreNameLabel.setText(mGenre.getName());
-        mGenreDeckLabel.setText(mGenre.getDeck());
+
+        if (mGenre.getDeck() == null) {
+            mGenreDeckLabel.setVisibility(View.GONE);
+        } else {
+            mGenreDeckLabel.setText(mGenre.getDeck());
+            mGenreDeckLabel.setVisibility(View.VISIBLE);
+        }
+
         mGenreUrlLabel.setOnClickListener(this);
 
         return view;

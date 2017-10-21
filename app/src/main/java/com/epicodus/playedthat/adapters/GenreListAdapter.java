@@ -27,8 +27,8 @@ import butterknife.ButterKnife;
  */
 
 public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.GenreViewHolder> {
-    private static final int MAX_WIDTH = 200;
-    private static final int MAX_HEIGHT = 200;
+    private static final int MAX_WIDTH = 130;
+    private static final int MAX_HEIGHT = 100;
     private ArrayList<Genre> mGenres = new ArrayList<>();
     private Context mContext;
 

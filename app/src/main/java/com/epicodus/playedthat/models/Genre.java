@@ -38,7 +38,6 @@ public class Genre {
     }
 
     public String getLargeImageUrl(String image) {
-        String largeImageUrl = image.substring(0, image.length());
-        return largeImageUrl;
+        return image;
     }
 }
