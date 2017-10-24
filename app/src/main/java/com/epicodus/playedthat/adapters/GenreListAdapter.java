@@ -82,7 +82,6 @@ public class GenreListAdapter extends RecyclerView.Adapter<GenreListAdapter.Genr
 
         @Override
         public void onClick(View v) {
-            Log.d("click listener", "working!");
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, GenreDetailActivity.class);
             intent.putExtra("position", itemPosition + "");

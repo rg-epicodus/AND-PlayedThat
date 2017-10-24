@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,9 +57,8 @@ public class GenreDetailFragment extends Fragment implements View.OnClickListene
                 .centerCrop()
                 .into(mGenreImageLabel);
         mGenreNameLabel.setText(mGenre.getName());
-
-        if (mGenre.getDeck() == null) {
-            mGenreDeckLabel.setVisibility(View.GONE);
+        if (mGenre.getDeck().equals("null")) {
+            mGenreDeckLabel.setText("Description not available");
         } else {
             mGenreDeckLabel.setText(mGenre.getDeck());
             mGenreDeckLabel.setVisibility(View.VISIBLE);

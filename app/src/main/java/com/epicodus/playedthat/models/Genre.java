@@ -8,10 +8,10 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Genre {
-    String name;
-    String image;
-    String deck;
-    String genreUrl;
+    private String name;
+    private String image;
+    private String deck;
+    private String genreUrl;
 
     public Genre() {}
 
