@@ -23,7 +23,7 @@ public class FindGamesActivity extends AppCompatActivity {
         mSearchByGenreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FindGamesActivity.this, SearchByGenreActivity.class);
+                Intent intent = new Intent(FindGamesActivity.this, GenreListActivity.class);
                 startActivity(intent);
             }
         });
