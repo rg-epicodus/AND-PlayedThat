@@ -20,6 +20,8 @@
         <activity android:name=".ui.FindGamesActivity"></activity>
         <activity android:name=".ui.GenreListActivity"></activity>
         <activity android:name=".ui.GenreDetailActivity"></activity>
+        <activity android:name=".ui.SearchByNameActivity"></activity>
+        <activity android:name=".ui.ListGamesByNameActivity"></activity>
 
 
     </application>

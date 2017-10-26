@@ -9,9 +9,6 @@ import com.epicodus.playedthat.ui.GenreDetailFragment;
 
 import java.util.ArrayList;
 
-/**
- * Created by OIG on 10/20/2017.
- */
 
 public class GenrePagerAdapter extends FragmentPagerAdapter {
     private ArrayList<Genre> mGenres;

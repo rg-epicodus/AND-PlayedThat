@@ -2,20 +2,25 @@ package com.epicodus.playedthat.models;
 
 import org.parceler.Parcel;
 
+/**
+ * Created by Guest on 10/26/17.
+ */
+
 @Parcel
-public class Genre {
+public class Game {
     String name;
     String image;
     String deck;
-    String genreUrl;
+    String gameUrl;
 
-    public Genre() {}
+    public Game() {
+    }
 
-    public Genre(String name, String image, String deck, String genreUrl) {
+    public Game(String name, String image, String deck, String gameUrl) {
         this.name = name;
-        this.image = getLargeImageUrl(image);
+        this.image = image;
         this.deck = deck;
-        this.genreUrl = genreUrl;
+        this.gameUrl = gameUrl;
     }
 
     public String getName() {
@@ -29,11 +34,8 @@ public class Genre {
     public String getDeck() {
         return deck;
     }
-    public String getGenreUrl() {
-        return genreUrl;
-    }
 
-    public String getLargeImageUrl(String image) {
-        return image;
+    public String getGameUrl() {
+        return gameUrl;
     }
 }

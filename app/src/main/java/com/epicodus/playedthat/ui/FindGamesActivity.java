@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 
 public class FindGamesActivity extends AppCompatActivity {
     @Bind(R.id.searchByGenreButton) Button mSearchByGenreButton;
+    @Bind(R.id.searchByNameButton) Button mSearchByNameButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,13 @@ public class FindGamesActivity extends AppCompatActivity {
             }
         });
 
+        mSearchByNameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FindGamesActivity.this, SearchByNameActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
 
