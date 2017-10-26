@@ -13,4 +13,6 @@
     <string name="genre_description">Genre Description</string>
     <string name="genre_names">Genre Name</string>
     <string name="view_online">View Online</string>
+    <string name="deck">Deck</string>
+    <string name="game_name">Game Name</string>
 </resources>

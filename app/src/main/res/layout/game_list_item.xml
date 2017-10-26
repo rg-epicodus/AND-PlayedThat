@@ -1,40 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
-        android:layout_width="130dp"
-        android:layout_height="match_parent"
         android:id="@+id/gameImageView"
-        android:scaleType="centerCrop"/>
+        android:layout_width="133dp"
+        android:layout_height="160dp"
+        android:layout_gravity="top|left"
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:background="#ffffff"
-        android:layout_height="126dp"
+        android:layout_height="match_parent"
         android:padding="10dp">
 
         <TextView
+            android:id="@+id/gameNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/gameNameTextView"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:text="Game Name"
-            android:textColor="@color/colorPrimary"/>
+            android:text="@string/game_name"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/gameDeckTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Deck"
-            android:id="@+id/gameDeckTextView"
-            android:layout_below="@+id/gameNameTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textStyle="italic"/>
+            android:text="@string/deck"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textStyle="italic" />
 
     </LinearLayout>
 </LinearLayout>

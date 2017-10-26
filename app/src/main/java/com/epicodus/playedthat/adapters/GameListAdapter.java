@@ -26,8 +26,8 @@ import butterknife.ButterKnife;
  */
 
 public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameViewHolder> {
-    private static final int MAX_WIDTH = 130;
-    private static final int MAX_HEIGHT = 100;
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 300;
     private ArrayList<Game> mGames = new ArrayList<>();
     private Context mContext;
 
@@ -55,7 +55,7 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameVi
 
 
     public class GameViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-//        @Bind(R.id.gameImageView) ImageView mGameImageView;
+        @Bind(R.id.gameImageView) ImageView mGameImageView;
         @Bind(R.id.gameNameTextView) TextView mGameNameTextView;
         @Bind(R.id.gameDeckTextView) TextView mGameDeckTextView;
 //        @Bind(R.id.gameUrlTextView) TextView mGameUrlTextView;
@@ -71,13 +71,18 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameVi
         }
 
         public void bindGame(Game game) {
-//            Picasso.with(mContext)
-//                    .load(game.getImage())
-//                    .resize(MAX_WIDTH, MAX_HEIGHT)
-//                    .centerCrop()
-//                    .into(mGameImageView);
+            Picasso.with(mContext)
+                    .load(game.getImage())
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(mGameImageView);
             mGameNameTextView.setText(game.getName());
-            mGameDeckTextView.setText(game.getDeck());
+            if (game.getDeck().equals("null")) {
+                mGameDeckTextView.setText("Description not available");
+            } else {
+                mGameDeckTextView.setText(game.getDeck());
+                mGameDeckTextView.setVisibility(View.VISIBLE);
+            }
 //            mGameUrlTextView.setText(game.getGameUrl());
 
 

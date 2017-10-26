@@ -19,8 +19,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class GameDetailFragment extends Fragment  {
-    private static final int MAX_WIDTH = 400;
-    private static final int MAX_HEIGHT = 180;
+    private static final int MAX_WIDTH = 522;
+    private static final int MAX_HEIGHT = 640;
     @Bind(R.id.gameImageView) ImageView mGameImageLabel;
     @Bind(R.id.gameNameTextView) TextView mGameNameLabel;
     @Bind(R.id.gameDeckTextView) TextView mGameDeckLabel;
@@ -54,13 +54,13 @@ public class GameDetailFragment extends Fragment  {
                 .centerCrop()
                 .into(mGameImageLabel);
         mGameNameLabel.setText(mGame.getName());
-//        if (mGame.getDeck().equals("null")) {
-//            mGameDeckLabel.setText("Description not available");
-//        } else {
-//            mGameDeckLabel.setText(mGame.getDeck());
-//            mGameDeckLabel.setVisibility(View.VISIBLE);
-//        }
-        mGameDeckLabel.setText(mGame.getDeck());
+        if (mGame.getDeck().equals("null")) {
+            mGameDeckLabel.setText("Description not available");
+        } else {
+            mGameDeckLabel.setText(mGame.getDeck());
+            mGameDeckLabel.setVisibility(View.VISIBLE);
+        }
+//        mGameDeckLabel.setText(mGame.getDeck());
 //        mGameUrlLabel.setOnClickListener(this);
         mGameUrlLabel.setText(mGame.getGameUrl());
 
