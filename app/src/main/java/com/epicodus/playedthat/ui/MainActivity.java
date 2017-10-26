@@ -18,6 +18,16 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.findGamesButton) Button mFindGamesButton;
 
 
+    //ImplementFirebase User Auth
+    //Save and Retreive Data using Firebase
+    //Employ Firebase-RecyclerAdapter to display from database
+    //Use SharedPreferences to save game search
+    //Use dialogs to inform users of login (loading database...)
+    //Use Search View Widget
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
