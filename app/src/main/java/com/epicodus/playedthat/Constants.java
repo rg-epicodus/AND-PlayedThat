@@ -12,5 +12,7 @@ public class Constants {
     public static final String FIELD_LIST_QUERY_PARAMETER = "field_list";
     public static final String FORMAT_JSON_PARAMETER = "format";
     public static final String FILTER_PARAMETER = "filter";
+    public static final String PREFERENCES_GAMENAME_KEY = "gameName";
+    public static final String FIREBASE_CHILD_SEARCHED_GAMENAME = "searchedGameName";
 
 }

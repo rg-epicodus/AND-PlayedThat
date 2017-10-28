@@ -1,11 +1,15 @@
 package com.epicodus.playedthat.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
+import com.epicodus.playedthat.Constants;
 import com.epicodus.playedthat.R;
 import com.epicodus.playedthat.adapters.GameListAdapter;
 import com.epicodus.playedthat.models.Game;
@@ -26,6 +30,8 @@ import okhttp3.Response;
 
 public class ListGamesByNameActivity extends AppCompatActivity {
     public static final String TAG = ListGamesByNameActivity.class.getSimpleName();
+    private SharedPreferences mSharedPreferences;
+    private String mRecentGameName;
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private GameListAdapter mAdapter;
@@ -40,6 +46,12 @@ public class ListGamesByNameActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String gameName = intent.getStringExtra("gameName");
+
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentGameName = mSharedPreferences.getString(Constants.PREFERENCES_GAMENAME_KEY, null);
+//        if (mRecentGameName != null) {
+//            getGames(mRecentGameName);
+//        }
 
         getGames(gameName);
     }

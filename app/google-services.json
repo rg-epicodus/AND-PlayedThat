@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "543777342485",
+    "firebase_url": "https://playedthat-e6f5e.firebaseio.com",
+    "project_id": "playedthat-e6f5e",
+    "storage_bucket": "playedthat-e6f5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543777342485:android:e80d73c20f889178",
+        "android_client_info": {
+          "package_name": "com.epicodus.playedthat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543777342485-m1frshi2o4fdfdlqu914ol95gj00b0g2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLaJf1fiRaDeg005EutWCYcuZkd_9OZhY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
