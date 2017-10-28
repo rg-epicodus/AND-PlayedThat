@@ -14,5 +14,6 @@ public class Constants {
     public static final String FILTER_PARAMETER = "filter";
     public static final String PREFERENCES_GAMENAME_KEY = "gameName";
     public static final String FIREBASE_CHILD_SEARCHED_GAMENAME = "searchedGameName";
+    public static final String FIREBASE_CHILD_GAMES = "games";
 
 }

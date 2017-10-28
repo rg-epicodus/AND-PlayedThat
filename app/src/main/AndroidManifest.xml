@@ -22,6 +22,7 @@
         <activity android:name=".ui.GenreDetailActivity"></activity>
         <activity android:name=".ui.SearchByNameActivity"></activity>
         <activity android:name=".ui.ListGamesByNameActivity"></activity>
+        <activity android:name=".ui.GameDetailActivity"></activity>
 
 
     </application>

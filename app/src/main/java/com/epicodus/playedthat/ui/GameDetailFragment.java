@@ -9,8 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.epicodus.playedthat.Constants;
 import com.epicodus.playedthat.R;
 import com.epicodus.playedthat.models.Game;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -18,13 +23,14 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class GameDetailFragment extends Fragment  {
+public class GameDetailFragment extends Fragment implements View.OnClickListener  {
     private static final int MAX_WIDTH = 522;
     private static final int MAX_HEIGHT = 640;
     @Bind(R.id.gameImageView) ImageView mGameImageLabel;
     @Bind(R.id.gameNameTextView) TextView mGameNameLabel;
     @Bind(R.id.gameDeckTextView) TextView mGameDeckLabel;
     @Bind(R.id.gameUrlTextView) TextView mGameUrlLabel;
+    @Bind(R.id.saveGameButton) TextView mSaveGameButton;
 
     private Game mGame;
 
@@ -60,19 +66,29 @@ public class GameDetailFragment extends Fragment  {
             mGameDeckLabel.setText(mGame.getDeck());
             mGameDeckLabel.setVisibility(View.VISIBLE);
         }
-//        mGameDeckLabel.setText(mGame.getDeck());
-//        mGameUrlLabel.setOnClickListener(this);
         mGameUrlLabel.setText(mGame.getGameUrl());
+
+
+//        mGameUrlLabel.setOnClickListener(this);
+        mSaveGameButton.setOnClickListener(this);
 
         return view;
     }
 
-//    @Override
-//    public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
 //        if (v == mGameUrlLabel) {
 //            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mGame.getGameUrl()));
 //            startActivity(webIntent);
 //        }
-//
-//    }
+
+        if (v == mSaveGameButton) {
+            DatabaseReference gameRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_GAMES);
+            gameRef.push().setValue(mGame);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 }

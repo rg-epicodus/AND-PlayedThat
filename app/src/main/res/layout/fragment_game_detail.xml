@@ -86,6 +86,17 @@
                     tools:ignore="RtlHardcoded" />
 
             </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save Game"
+                android:id="@+id/saveGameButton"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorAccent"
+                android:textColor="@color/colorTextIcons"
+                android:textSize="15sp" />
+
         </RelativeLayout>
     </LinearLayout>
 </FrameLayout>
