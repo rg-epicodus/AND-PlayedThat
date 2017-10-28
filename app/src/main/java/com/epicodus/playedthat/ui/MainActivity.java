@@ -13,9 +13,10 @@ import com.epicodus.playedthat.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
     @Bind(R.id.findGamesButton) Button mFindGamesButton;
+    @Bind(R.id.savedGamesButton) Button mSavedGamesButton;
 
 
     @Override
@@ -27,13 +28,23 @@ public class MainActivity extends AppCompatActivity {
         Typeface rubikFont = Typeface.createFromAsset(getAssets(), "fonts/rubikregular.ttf");
         mAppNameTextView.setTypeface(rubikFont);
 
-        mFindGamesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        mSavedGamesButton.setOnClickListener(this);
+        mFindGamesButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if(v == mFindGamesButton) {
             Intent intent = new Intent(MainActivity.this, FindGamesActivity.class);
             startActivity(intent);
-            }
-        });
+        }
+
+        if (v == mSavedGamesButton) {
+            Intent intent = new Intent(MainActivity.this, SavedGameListActivity.class);
+            startActivity(intent);
+        }
 
     }
+
 }

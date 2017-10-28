@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.epicodus.playedthat">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,18 +14,16 @@
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.FindGamesActivity"></activity>
-        <activity android:name=".ui.GenreListActivity"></activity>
-        <activity android:name=".ui.GenreDetailActivity"></activity>
-        <activity android:name=".ui.SearchByNameActivity"></activity>
-        <activity android:name=".ui.ListGamesByNameActivity"></activity>
-        <activity android:name=".ui.GameDetailActivity"></activity>
-
-
+        <activity android:name=".ui.FindGamesActivity" />
+        <activity android:name=".ui.GenreListActivity" />
+        <activity android:name=".ui.GenreDetailActivity" />
+        <activity android:name=".ui.SearchByNameActivity" />
+        <activity android:name=".ui.ListGamesByNameActivity" />
+        <activity android:name=".ui.GameDetailActivity" />
+        <activity android:name=".ui.SavedGameListActivity" />
     </application>
 
 </manifest>
