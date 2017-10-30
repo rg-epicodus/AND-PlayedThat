@@ -10,20 +10,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".ui.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.FindGamesActivity" />
-        <activity android:name=".ui.GenreListActivity" />
+        <activity android:name=".ui.GenreListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.FindGamesActivity" />
+        </activity>
         <activity android:name=".ui.GenreDetailActivity" />
         <activity android:name=".ui.SearchByNameActivity" />
         <activity android:name=".ui.ListGamesByNameActivity" />
         <activity android:name=".ui.GameDetailActivity" />
         <activity android:name=".ui.SavedGameListActivity" />
+        <activity android:name=".ui.CreateAccountActivity" />
+        <activity android:name=".ui.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
