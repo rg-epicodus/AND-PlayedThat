@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:id="@+id/gameImageView"
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/dragIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@id/gameImageView"
+            android:layout_alignBottom="@id/gameImageView"
+            android:gravity="bottom|left"
+            android:src="@drawable/ic_reorder_white_24dp"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gameNameTextView"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="@string/game_name_drag"
+            android:textColor="@color/colorPrimary"
+            tools:ignore="SpUsage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Game Deck"
+            android:id="@+id/gameDeckTextView"
+            android:layout_below="@+id/gameNameTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textStyle="italic"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+
+    </LinearLayout>
+</LinearLayout>

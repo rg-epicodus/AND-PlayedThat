@@ -15,4 +15,5 @@
     <string name="view_online">View Online</string>
     <string name="deck">Deck</string>
     <string name="game_name">Game Name</string>
+    <string name="game_name_drag">Game Name</string>
 </resources>
