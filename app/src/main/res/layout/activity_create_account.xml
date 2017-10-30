@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.epicodus.playedthat.ui.CreateAccountActivity"
-    android:background="@color/colorPrimary">
+    android:background="@color/background_material_dark">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="30dp"
+        android:id="@+id/linearLayout"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/linearLayout">
+        android:layout_alignParentStart="true">
 
         <EditText
             android:id="@+id/nameEditText"
@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="@android:color/white"
+            android:fontFamily="sans-serif-smallcaps"
             android:hint="Name"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
@@ -33,12 +34,13 @@
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:background="@android:color/white"
+            android:fontFamily="sans-serif-smallcaps"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
-            android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
             android:textColorHint="?android:attr/textColorHint"
             android:textSize="20sp" />
@@ -47,12 +49,13 @@
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:background="@android:color/white"
+            android:fontFamily="sans-serif-smallcaps"
             android:hint="Password"
             android:inputType="textPassword"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
-            android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
             android:textColorHint="?android:attr/textColorHint"
             android:textSize="20sp" />
@@ -61,37 +64,18 @@
             android:id="@+id/confirmPasswordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:background="@android:color/white"
+            android:fontFamily="sans-serif-smallcaps"
             android:hint="Confirm Password"
             android:inputType="textPassword"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
-            android:layout_marginBottom="10dp"
+            android:textAlignment="viewStart"
             android:textColor="@android:color/black"
             android:textColorHint="?android:attr/textColorHint"
             android:textSize="20sp" />
 
-
-        <Button
-            android:id="@+id/createUserButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Sign up"
-            android:background="@color/colorAccent"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/colorTextIcons" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/colorTextIcons"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:text="Already have an account? Log in here!"
-            android:id="@+id/loginTextView"
-            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
 
@@ -99,10 +83,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Account"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/background_material_dark"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView" />
+
+    <Button
+        android:id="@+id/createUserButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@color/accent_material_dark"
+        android:padding="10dp"
+        android:text="Sign up"
+        android:textColor="@color/colorTextIcons" />
+
+    <TextView
+        android:id="@+id/loginTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/createUserButton"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="13dp"
+        android:text="Log in"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
