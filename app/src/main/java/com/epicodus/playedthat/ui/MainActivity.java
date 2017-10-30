@@ -27,6 +27,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.savedGamesButton) Button mSavedGamesButton;
 
 
+    //ImplementFirebase User Auth
+    //Save and Retreive Data using Firebase
+    //Employ Firebase-RecyclerAdapter to display from database
+    //Use SharedPreferences to save game search
+    //Use dialogs to inform users of login (loading database...)
+    //Use Search View Widget
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
