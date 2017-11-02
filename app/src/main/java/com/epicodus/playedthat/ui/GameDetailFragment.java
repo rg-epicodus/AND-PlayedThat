@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.epicodus.playedthat.Constants;
 import com.epicodus.playedthat.R;
 import com.epicodus.playedthat.models.Game;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -83,9 +85,17 @@ public class GameDetailFragment extends Fragment implements View.OnClickListener
 //        }
 
         if (v == mSaveGameButton) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid= user.getUid();
+
             DatabaseReference gameRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_GAMES);
+                    .getReference(Constants.FIREBASE_CHILD_GAMES)
+                    .child(uid);
+
+            DatabaseReference pushRef= gameRef.push();
+            String pushId = pushRef.getKey();
+            mGame.setPushId(pushId);
             gameRef.push().setValue(mGame);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }

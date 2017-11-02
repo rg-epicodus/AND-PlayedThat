@@ -12,6 +12,7 @@ public class Game {
     String image;
     String deck;
     String gameUrl;
+    private String pushId;
 
     public Game() {
     }
@@ -37,5 +38,13 @@ public class Game {
 
     public String getGameUrl() {
         return gameUrl;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 }

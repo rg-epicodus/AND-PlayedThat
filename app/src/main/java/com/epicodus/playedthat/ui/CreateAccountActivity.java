@@ -46,18 +46,25 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
         mAuth = FirebaseAuth.getInstance();
         createAuthStateListener();
+        createAuthProgressDialog();
 
         mLoginTextView.setOnClickListener(this);
         mCreateUserButton.setOnClickListener(this);
-        createAuthProgressDialog();
 
     }
 
-    private void createAuthProgressDialog() {
-        mAuthProgressDialog = new ProgressDialog(this);
-        mAuthProgressDialog.setTitle("Loading...");
-        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
-        mAuthProgressDialog.setCancelable(false);
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 
     @Override
@@ -110,6 +117,26 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         });
     }
 
+    private void createFirebaseUserProfile(final FirebaseUser user) {
+
+        UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                .setDisplayName(mName)
+                .build();
+
+        user.updateProfile(addProfileName)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, user.getDisplayName());
+                        }
+                    }
+
+                });
+    }
+
+
     private void createAuthStateListener() {
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
@@ -125,6 +152,13 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
             }
 
         };
+    }
+
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mAuthProgressDialog.setCancelable(false);
     }
 
     private boolean isValidEmail(String email) {
@@ -145,6 +179,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         return true;
     }
 
+
     private boolean isValidPassword(String password, String confirmPassword) {
         if (password.length() < 6) {
             mPasswordEditText.setError("Please create a password containing at least 6 characters");
@@ -156,36 +191,5 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         return true;
     }
 
-    private void createFirebaseUserProfile(final FirebaseUser user) {
 
-        UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
-                .setDisplayName(mName)
-                .build();
-
-        user.updateProfile(addProfileName)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, user.getDisplayName());
-                        }
-                    }
-
-                });
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
 }
