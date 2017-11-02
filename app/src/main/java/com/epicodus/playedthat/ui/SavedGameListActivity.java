@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,15 +49,16 @@ public class SavedGameListActivity extends AppCompatActivity implements OnStartD
         Log.d(TAG, "setUpFirebaseAdapter: " + uid);
 
 
-        mGameReference = FirebaseDatabase
+        Query query = FirebaseDatabase
                 .getInstance()
                 .getReference(Constants.FIREBASE_CHILD_GAMES)
-                .child(uid);
+                .child(uid)
+                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
         Log.d(TAG, "setUpFirebaseAdapter: " + mGameReference);
 
         mFirebaseAdapter = new FirebaseGameListAdapter(Game.class,
                 R.layout.game_list_item_drag, FirebaseGameViewHolder.class,
-                mGameReference, this, this);
+                query, this, this);
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));

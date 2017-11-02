@@ -28,7 +28,7 @@ public class GameDetailActivity extends AppCompatActivity{
         ButterKnife.bind(this);
 
         mGames = Parcels.unwrap(getIntent().getParcelableExtra("games"));
-        int startingPosition = Integer.parseInt(getIntent().getStringExtra("position"));
+        int startingPosition = getIntent().getIntExtra("position", 0);
 
         adapterViewPager = new GamePagerAdapter(getSupportFragmentManager(), mGames);
         mViewPager.setAdapter(adapterViewPager);

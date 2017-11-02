@@ -71,7 +71,7 @@ public class GameDetailFragment extends Fragment implements View.OnClickListener
         mGameUrlLabel.setText(mGame.getGameUrl());
 
 
-//        mGameUrlLabel.setOnClickListener(this);
+        mGameUrlLabel.setOnClickListener(this);
         mSaveGameButton.setOnClickListener(this);
 
         return view;
@@ -79,10 +79,10 @@ public class GameDetailFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-//        if (v == mGameUrlLabel) {
-//            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mGame.getGameUrl()));
-//            startActivity(webIntent);
-//        }
+        if (v == mGameUrlLabel) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mGame.getGameUrl()));
+            startActivity(webIntent);
+        }
 
         if (v == mSaveGameButton) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

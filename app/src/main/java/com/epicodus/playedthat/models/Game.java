@@ -13,15 +13,17 @@ public class Game {
     String deck;
     String gameUrl;
     private String pushId;
+    String index;
 
-    public Game() {
-    }
+
+    public Game() {}
 
     public Game(String name, String image, String deck, String gameUrl) {
         this.name = name;
         this.image = image;
         this.deck = deck;
         this.gameUrl = gameUrl;
+        this.index = "not_specified";
     }
 
     public String getName() {
@@ -46,5 +48,13 @@ public class Game {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 }

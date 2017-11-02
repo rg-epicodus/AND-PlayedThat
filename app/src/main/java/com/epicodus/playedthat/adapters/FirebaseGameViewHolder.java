@@ -53,7 +53,6 @@ public class FirebaseGameViewHolder extends RecyclerView.ViewHolder implements V
 
         gameNameTextView.setText(game.getName());
         gameDeckTextView.setText(game.getDeck());
-//        gameUrlTextView.setText(game.getGameUrl());
     }
 
     @Override
