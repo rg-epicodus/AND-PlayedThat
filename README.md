@@ -26,7 +26,7 @@ Table of contents
 * Clone the repo
 * Open in Android Studio
 * Start Virtual Android Device
-* Run App and ue on Emulator
+* Run App and view on Emulator
 
 
 ## Specifications
