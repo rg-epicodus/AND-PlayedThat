@@ -47,11 +47,6 @@ public class ListGamesByNameActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String gameName = intent.getStringExtra("gameName");
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mRecentGameName = mSharedPreferences.getString(Constants.PREFERENCES_GAMENAME_KEY, null);
-//        if (mRecentGameName != null) {
-//            getGames(mRecentGameName);
-//        }
 
         getGames(gameName);
     }

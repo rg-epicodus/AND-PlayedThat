@@ -28,8 +28,6 @@ import butterknife.ButterKnife;
  */
 
 public class SearchByNameActivity extends AppCompatActivity implements View.OnClickListener{
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
 
     private DatabaseReference mSearchedGameNameReference;
     private ValueEventListener mSearchedGameNameReferenceListener;
@@ -67,8 +65,6 @@ public class SearchByNameActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_searchbyname);
         ButterKnife.bind(this);
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
 
         mFindByNameButton.setOnClickListener(this);
 
@@ -80,9 +76,6 @@ public class SearchByNameActivity extends AppCompatActivity implements View.OnCl
             String gameName = mSearchByNameEditText.getText().toString();
             saveGameNameToFirebase(gameName);
 
-//            if(!(gameName).equals("")) {
-//                addToSharedPreferences(gameName);
-//            }
             Intent intent = new Intent(SearchByNameActivity.this, ListGamesByNameActivity.class);
             intent.putExtra("gameName", gameName);
             startActivity(intent);
@@ -99,8 +92,5 @@ public class SearchByNameActivity extends AppCompatActivity implements View.OnCl
         mSearchedGameNameReference.removeEventListener(mSearchedGameNameReferenceListener);
     }
 
-//    private void addToSharedPreferences(String gameName) {
-//        mEditor.putString(Constants.PREFERENCES_GAMENAME_KEY, gameName).apply();
-//    }
 
 }

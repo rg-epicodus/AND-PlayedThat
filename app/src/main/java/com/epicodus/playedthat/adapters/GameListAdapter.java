@@ -58,7 +58,6 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameVi
         @Bind(R.id.gameImageView) ImageView mGameImageView;
         @Bind(R.id.gameNameTextView) TextView mGameNameTextView;
         @Bind(R.id.gameDeckTextView) TextView mGameDeckTextView;
-//        @Bind(R.id.gameUrlTextView) TextView mGameUrlTextView;
 
 
         private Context mContext;
@@ -83,7 +82,6 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameVi
                 mGameDeckTextView.setText(game.getDeck());
                 mGameDeckTextView.setVisibility(View.VISIBLE);
             }
-//            mGameUrlTextView.setText(game.getGameUrl());
 
 
         }

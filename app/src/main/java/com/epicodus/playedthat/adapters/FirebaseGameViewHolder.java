@@ -59,32 +59,6 @@ public class FirebaseGameViewHolder extends RecyclerView.ViewHolder implements I
         gameDeckTextView.setText(game.getDeck());
     }
 
-//    @Override
-//    public void onClick(View view) {
-//        final ArrayList<Game> games = new ArrayList<>();
-//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GAMES);
-//        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-//
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    games.add(snapshot.getValue(Game.class));
-//                }
-//
-//                int itemPosition = getLayoutPosition();
-//
-//                Intent intent = new Intent(mContext, GameDetailActivity.class);
-//                intent.putExtra("position", itemPosition + "");
-//                intent.putExtra("games", Parcels.wrap(games));
-//
-//                mContext.startActivity(intent);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//            }
-//        });
-//    }
 
     @Override
     public void onItemSelected() {
